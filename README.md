@@ -14,7 +14,39 @@ a [PostgreSQL](https://www.postgresql.org/) database on top of which [GraphQL](h
 created using [Hasura](https://hasura.io/).
 
 ## Usage
-Put the following configuration under: `$HOME/.bdjuno/config.yaml`
+
+### Set up the database
+Follow the guide in big dipper [docs](https://docs.bigdipper.live/cosmos-based/parser/database) and create the DB schema needed.
+
+### Set up and run BDJuno for Celestia
+#### Install BDJuno
+First, clone this repo:
+```shell
+$ git clone https://github.com/celestiaorg/bdjuno
+```
+
+Then, make sure you are on the `celestia/0.44.x` branch:
+```shell
+$ cd bdjuno
+$ git branch | grep '*' #should print: celestia/0.44.x
+```
+
+Now, let's install BDJuno:
+```shell
+$ make install
+$ bdjuno #should print the usage
+```
+
+#### Initialize the configuration
+You can initialize the configuration using:
+```shell
+$ bdjuno init
+```
+This will create such file inside the `~/.bdjuno` folder.
+
+If you want to change the home directory of your configuration, refer to [docs](https://docs.bigdipper.live/cosmos-based/parser/setup#initializing-the-configuration).
+
+Then, update the configuration under `~/.bdjuno/config.yaml` to reflect the following:
 ```yaml
 chain:
     bech32_prefix: celes
@@ -71,7 +103,19 @@ pricefeed:
 distribution:
   rewards_frequency: 100
 ```
-Then follow the setup process under [docs website](https://docs.bigdipper.live/cosmos-based/parser/overview/).
+
+Now, you can run BDJuno using: 
+```shell
+$ bdjuno parse
+```
+And, also set it as a service following the [docs](https://docs.bigdipper.live/cosmos-based/parser/setup#running-bdjuno).
+
+### Set up Hasura
+Follow the steps in [here](https://docs.bigdipper.live/cosmos-based/parser/hasura).
+
+For more information, refer to the [docs website](https://docs.bigdipper.live/cosmos-based/overview/).
+
+Then, you can move to [big dipper](https://github.com/celestiaorg/big-dipper-2.0-cosmos) to set up the UI.
 
 ## Testing
 If you want to test the code, you can do so by running
