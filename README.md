@@ -14,8 +14,64 @@ a [PostgreSQL](https://www.postgresql.org/) database on top of which [GraphQL](h
 created using [Hasura](https://hasura.io/).
 
 ## Usage
-To know how to setup and run BDJuno, please refer to
-the [docs website](https://docs.bigdipper.live/cosmos-based/parser/overview/).
+Put the following configuration under: `$HOME/.bdjuno/config.yaml`
+```yaml
+chain:
+    bech32_prefix: celes
+    modules: 
+      - modules 
+      - messages
+      - auth
+      - bank
+      - consensus
+      - gov
+      - mint
+      - pricefeed
+      - slashing
+      - staking
+      - distribution
+      - history
+node:
+    type: remote
+    config:
+            rpc:
+                    client_name: juno
+                    address: http://<host>:<port (26657 default)>
+                    max_connections: 40
+            grpc:
+                    address: http://<host>:<port (9090 default)>
+                    insecure: true
+parsing:
+    workers: <number of workers (the more, the faster, the more resources intensive)
+    listen_new_blocks: true
+    parse_old_blocks: true
+    parse_genesis: true
+    start_height: 1
+database:
+    name: <db_name>
+    host: <host>
+    port: <port>
+    user: <username>
+    password: <password>
+    schema: <schema>
+    max_open_connections: 1
+    max_idle_connections: 1
+logging:
+    level: debug 
+    format: text
+pricefeed:
+  tokens:
+    - name: Celes
+      units:
+       - denom: uceles
+         exponent: 0
+       - denom: celes
+         exponent: 6
+         price_id: celestia
+distribution:
+  rewards_frequency: 100
+```
+Then follow the setup process under [docs website](https://docs.bigdipper.live/cosmos-based/parser/overview/).
 
 ## Testing
 If you want to test the code, you can do so by running
