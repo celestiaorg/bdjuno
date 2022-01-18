@@ -24,6 +24,6 @@ replace github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alp
 
 replace google.golang.org/grpc => google.golang.org/grpc v1.33.2
 
-replace github.com/tendermint/tendermint => github.com/celestiaorg/celestia-core v0.34.14-celestia.0.20211121093520-199a1e4232ac
+replace github.com/tendermint/tendermint => github.com/celestiaorg/celestia-core v0.34.14-celestia
 
 replace github.com/cosmos/cosmos-sdk => github.com/celestiaorg/cosmos-sdk v0.44.1-celestia
