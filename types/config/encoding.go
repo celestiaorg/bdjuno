@@ -1,6 +1,7 @@
 package config
 
 import (
+	paymenttypes "github.com/celestiaorg/celestia-app/x/payment/types"
 	"github.com/cosmos/cosmos-sdk/simapp/params"
 	"github.com/cosmos/cosmos-sdk/std"
 	"github.com/cosmos/cosmos-sdk/types/module"
@@ -12,6 +13,7 @@ func MakeEncodingConfig(managers []module.BasicManager) func() params.EncodingCo
 		encodingConfig := params.MakeTestEncodingConfig()
 		std.RegisterLegacyAminoCodec(encodingConfig.Amino)
 		std.RegisterInterfaces(encodingConfig.InterfaceRegistry)
+		paymenttypes.RegisterInterfaces(encodingConfig.InterfaceRegistry)
 		manager := mergeBasicManagers(managers)
 		manager.RegisterLegacyAminoCodec(encodingConfig.Amino)
 		manager.RegisterInterfaces(encodingConfig.InterfaceRegistry)
