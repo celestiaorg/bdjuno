@@ -21,12 +21,10 @@ require (
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 )
 
-replace github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
-
-replace google.golang.org/grpc => google.golang.org/grpc v1.33.2
-
-replace github.com/tendermint/tendermint => github.com/celestiaorg/celestia-core v0.34.14-celestia.0.20220119223021-e54097114e14
-
-replace github.com/cosmos/cosmos-sdk => github.com/celestiaorg/cosmos-sdk v0.44.1-celestia
-
-replace github.com/forbole/juno/v2 v2.0.0-20211221122008-f95aacf17add => github.com/celestiaorg/juno/v2 v2.1.0-celestia
+replace (
+	github.com/cosmos/cosmos-sdk => github.com/celestiaorg/cosmos-sdk v0.44.1-celestia
+	github.com/forbole/juno/v2 v2.0.0-20211221122008-f95aacf17add => github.com/celestiaorg/juno/v2 v2.1.0-celestia
+	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
+	github.com/tendermint/tendermint => github.com/celestiaorg/celestia-core v0.34.14-celestia.0.20220119223021-e54097114e14
+	google.golang.org/grpc => google.golang.org/grpc v1.33.2
+)
